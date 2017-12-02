@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from './constants';
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -7,12 +9,12 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoText: {
-        color: '#444',
-        fontWeight: 'bold',
+        color: colors.GRAPHITE,
         fontSize: 36,
+        // fontFamily: 'Oswald',
         alignSelf: 'center',
     },
     logoBracket: {
-        color: '#aaf',
+        color: colors.SHARP_BLUE,
     }
 });

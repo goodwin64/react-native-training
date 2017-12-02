@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { Font } from 'expo';
 
 import LoginScreen from './components/LoginScreen';
 import UserRoom from './components/UserRoom';
@@ -11,10 +12,28 @@ export default class App extends Component {
         this.state = {
             username: 'Your username',
             screen: '/login',
+            // isFontLoaded: false,
+            errorMessage: null,
         };
         this.onLogin = this.onLogin.bind(this);
         this.onLogout = this.onLogout.bind(this);
     }
+
+    // async componentDidMount() {
+    //     Font.loadAsync({
+    //         'Oswald': require('./assets/fonts/Oswald.ttf'),
+    //         'Oswald-bold': require('./assets/fonts/Oswald-Bold.ttf'),
+    //     }).then(() => {
+    //         this.setState({
+    //             isFontLoaded: true,
+    //         })
+    //     }).catch((err) => {
+    //         this.setState({
+    //             errorMessage: `Font not loaded:
+    //             ${JSON.stringify(err)}`
+    //         })
+    //     });
+    // }
 
     onLogin() {
         this.setState({
@@ -29,9 +48,18 @@ export default class App extends Component {
     }
 
     render() {
+        if (this.state.errorMessage) {
+            return (
+                <View style={styles.container}>
+                    <Text>
+                        {this.state.errorMessage}
+                    </Text>
+                </View>
+            ); // TODO: add default font (system)
+        }
+
         return (
             <View style={styles.container}>
-                <Text>123</Text>
                 {
                     <Text>
                         {this.state.screen}
