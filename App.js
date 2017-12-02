@@ -27,8 +27,8 @@ export default class App extends Component {
             });
         }).catch((err) => {
             this.setState({
-                // errorMessage: `Font not loaded:
-                //     ${JSON.stringify(err)}`,
+                errorMessage: `Font not loaded:
+                    ${JSON.stringify(err)}`,
                 isFontLoaded: true,
             });
         });
@@ -47,15 +47,15 @@ export default class App extends Component {
     };
 
     render() {
-        if (this.state.errorMessage) {
-            return (
-                <View style={styles.container}>
-                    <Text>
-                        {this.state.errorMessage}
-                    </Text>
-                </View>
-            ); // TODO: add default font (system)
-        }
+        // if (this.state.errorMessage) {
+        //     return (
+        //         <View style={styles.container}>
+        //             <Text>
+        //                 {this.state.errorMessage}
+        //             </Text>
+        //         </View>
+        //     ); // TODO: add default font (system)
+        // } // TODO: handle font requiring error
 
         return (
             <View style={styles.container}>
