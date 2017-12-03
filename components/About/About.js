@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import {
     Header,
@@ -25,6 +26,14 @@ class BackButton extends Component {
 }
 
 export default class About extends Component {
+    static propTypes = {
+        onBack: PropTypes.func,
+    };
+
+    static defaultProps = {
+        onBack: () => {},
+    };
+
     render() {
         return (
             <View>
