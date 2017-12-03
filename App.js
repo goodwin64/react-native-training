@@ -3,14 +3,16 @@ import { Text, View } from 'react-native';
 import { Font } from 'expo';
 
 import LoginScreen from './components/LoginScreen/LoginScreen';
-import UserRoom from './components/UserRoom';
+import UserRoom from './components/UserRoom/UserRoom';
 import { styles } from './styles/styles.js';
+import { routes } from './styles/constants';
+import userRoomStyles from './components/UserRoom/UserRoom.styles';
 
 export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            screen: '/login',
+            screen: routes.LOGIN_SCREEN,
             isFontLoaded: false,
             errorMessage: null,
         };
@@ -36,36 +38,20 @@ export default class App extends Component {
 
     onLogin = () => {
         this.setState({
-            screen: '/userroom',
+            screen: routes.USER_ROOM,
         });
     };
 
     onLogout = () => {
         this.setState({
-            screen: '/login',
+            screen: routes.LOGIN_SCREEN,
         });
     };
 
-    render() {
-        // if (this.state.errorMessage) {
-        //     return (
-        //         <View style={styles.container}>
-        //             <Text>
-        //                 {this.state.errorMessage}
-        //             </Text>
-        //         </View>
-        //     ); // TODO: add default font (system)
-        // } // TODO: handle font requiring error
-
-        return (
-            <View style={styles.container}>
-                {
-                    <Text>
-                        {this.state.screen}
-                    </Text>
-                }
-                {
-                    this.state.screen === '/login' &&
+    renderContent() {
+        switch (this.state.screen) {
+            case routes.LOGIN_SCREEN: {
+                return (
                     <LoginScreen
                         username={this.state.username}
                         password={this.state.password}
@@ -73,14 +59,49 @@ export default class App extends Component {
                         onPasswordInput={password => this.setState({ password })}
                         onLogin={this.onLogin}
                     />
-                }
-                {
-                    this.state.screen === '/userroom' &&
+                );
+            }
+            case routes.USER_ROOM: {
+                return (
                     <UserRoom
                         username={this.state.username}
                         onLogout={this.onLogout}
                     />
-                }
+                );
+            }
+            default: {
+                return (
+                    <View style={styles.appContainer}>
+                        <Text>
+                            Screen: "{this.state.screen}"
+                        </Text>
+                    </View>
+                );
+            }
+        }
+    }
+
+    render() {
+        // if (this.state.errorMessage) {
+        //     return (
+        //         <View style={styles.appContainer}>
+        //             <Text>
+        //                 {this.state.errorMessage}
+        //             </Text>
+        //         </View>
+        //     ); // TODO: add default font (system)
+        // } // TODO: handle font requiring error
+
+        const containerStyles = [
+            styles.appContainer
+        ].concat(this.state.screen === routes.USER_ROOM
+            ? [userRoomStyles.container]
+            : []
+        ); // Stylesheet doesn't work well with spread
+
+        return (
+            <View style={containerStyles}>
+                {this.renderContent()}
             </View>
         );
     }

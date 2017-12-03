@@ -43,7 +43,7 @@ export default class LoginScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={LoginScreenStyles.container}>
                 <Logo />
 
                 <TextInput
@@ -73,7 +73,6 @@ export default class LoginScreen extends Component {
                     accessibilityLabel="Log in"
                     color={colors.LIME_GREEN}
                 />
-
             </View>
         );
     }

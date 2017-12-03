@@ -11,3 +11,8 @@ export const colors = Object.freeze({
     GRAY: '#999999',
     LIGHT_GRAY: '#CCCCCC',
 });
+
+export const routes = Object.freeze({
+    LOGIN_SCREEN: '/login',
+    USER_ROOM: '/userroom',
+});

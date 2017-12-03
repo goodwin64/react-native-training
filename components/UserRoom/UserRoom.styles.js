@@ -1,11 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../styles/constants';
+
 export default StyleSheet.create({
     container: {
-        flex: 0.25,
-    },
-    credentialsInput: {
-        paddingLeft: 10,
-        paddingRight: 10,
+        backgroundColor: colors.LIGHT_GRAY
     },
 });
