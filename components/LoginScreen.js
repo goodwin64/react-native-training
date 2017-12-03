@@ -20,16 +20,24 @@ class Logo extends Component {
 export default class LoginScreen extends Component {
     static propTypes = {
         onUsernameInput: PropTypes.func.isRequired,
+        onPasswordInput: PropTypes.func.isRequired,
         username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
     };
 
     static defaultProps = {
         onUsernameInput: () => {},
+        onPasswordInput: () => {},
         username: '',
+        password: '',
     };
 
     onUsernameInput = (username) => {
         this.props.onUsernameInput(username);
+    };
+
+    onPasswordInput = (password) => {
+        this.props.onPasswordInput(password);
     };
 
     render() {
@@ -45,8 +53,8 @@ export default class LoginScreen extends Component {
                 />
 
                 <TextInput
-                    onChangeText={this.onUsernameInput}
-                    value={this.props.username}
+                    onChangeText={this.onPasswordInput}
+                    value={this.props.password}
                     placeholder="***********"
                     placeholderTextColor={colors.LIGHT_GRAY}
                     secureTextEntry

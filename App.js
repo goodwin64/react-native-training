@@ -10,7 +10,6 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            username: 'Your username',
             screen: '/login',
             isFontLoaded: false,
             errorMessage: null,
@@ -18,20 +17,21 @@ export default class App extends Component {
     }
 
     async componentDidMount() {
-        Font.loadAsync({
-            'Oswald': require('./assets/fonts/Oswald.ttf'),
-            'Oswald-bold': require('./assets/fonts/Oswald-Bold.ttf'),
-        }).then(() => {
+        try {
+            await Font.loadAsync({
+                'Oswald': require('./assets/fonts/Oswald.ttf'),
+                'Oswald-bold': require('./assets/fonts/Oswald-Bold.ttf'),
+            });
             this.setState({
                 isFontLoaded: true,
             });
-        }).catch((err) => {
+        } catch(err) {
             this.setState({
                 errorMessage: `Font not loaded:
                     ${JSON.stringify(err)}`,
-                isFontLoaded: true,
+                // isFontLoaded: true,
             });
-        });
+        }
     }
 
     onLogin = () => {
@@ -68,7 +68,9 @@ export default class App extends Component {
                     this.state.screen === '/login' &&
                     <LoginScreen
                         username={this.state.username}
+                        password={this.state.password}
                         onUsernameInput={username => this.setState({ username })}
+                        onPasswordInput={password => this.setState({ password })}
                         onLogin={this.onLogin}
                     />
                 }
