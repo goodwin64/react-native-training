@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, TextInput, Button } from 'react-native';
 
-import WithBrackets from './WithBrackets.js';
-import { colors } from '../styles/constants';
+import WithBrackets from '../WithBrackets.js';
+import { colors } from '../../styles/constants';
+import LoginScreenStyles from './LoginScreen.styles';
 
 class Logo extends Component {
     render() {
@@ -50,6 +51,10 @@ export default class LoginScreen extends Component {
                     value={this.props.username}
                     placeholder="Username"
                     placeholderTextColor={colors.LIGHT_GRAY}
+                    onSubmitEditing={(event) => {
+                        this.refs.PasswordInput.focus();
+                    }}
+                    style={LoginScreenStyles.credentialsInput}
                 />
 
                 <TextInput
@@ -58,9 +63,16 @@ export default class LoginScreen extends Component {
                     placeholder="***********"
                     placeholderTextColor={colors.LIGHT_GRAY}
                     secureTextEntry
+                    ref="PasswordInput"
+                    style={LoginScreenStyles.credentialsInput}
                 />
 
-                <Button onPress={this.props.onLogin} title="Login" color="#841584" />
+                <Button
+                    onPress={this.props.onLogin}
+                    title="Login"
+                    accessibilityLabel="Log in"
+                    color={colors.LIME_GREEN}
+                />
 
             </View>
         );

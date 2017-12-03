@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Font } from 'expo';
 
-import LoginScreen from './components/LoginScreen';
+import LoginScreen from './components/LoginScreen/LoginScreen';
 import UserRoom from './components/UserRoom';
 import { styles } from './styles/styles.js';
 

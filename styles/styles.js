@@ -16,5 +16,8 @@ export const styles = StyleSheet.create({
     },
     logoBracket: {
         color: colors.SHARP_BLUE,
+    },
+    button: {
+        backgroundColor: colors.LIME_GREEN,
     }
 });
