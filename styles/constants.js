@@ -16,3 +16,9 @@ export const routes = Object.freeze({
     LOGIN_SCREEN: '/login',
     USER_ROOM: '/userroom',
 });
+
+export const assets = Object.freeze({
+    // FONT_OSWALD: require('../assets/fonts/Oswald.ttf'), // TODO: continue when fixing font
+    // FONT_OSWALD_BOLD: require('../assets/fonts/Oswald-Bold.ttf'),
+    IMAGE_CODER: require('../assets/images/user-room-background.png'),
+});

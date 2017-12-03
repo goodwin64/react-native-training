@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, Image } from 'react-native';
 import { Header } from 'react-native-elements';
 
-import { colors } from '../../styles/constants';
+import {
+    assets,
+    colors,
+} from '../../styles/constants';
 import UserRoomStyles from './UserRoom.styles';
 
 export default class extends Component {
@@ -16,14 +19,17 @@ export default class extends Component {
                     outerContainerStyles={UserRoomStyles.header}
                 />
 
-                <Text>
-                    Your username: {this.props.username}
-                </Text>
+                <Image
+                    style={UserRoomStyles.coderImage}
+                    source={assets.IMAGE_CODER}
+                />
+
                 <Button
                     onPress={this.props.onLogout}
                     title="Logout"
                     accessibilityLabel="Log out"
                     color={colors.LIME_GREEN}
+                    style={UserRoomStyles.logoutButton}
                 />
             </View>
         );
