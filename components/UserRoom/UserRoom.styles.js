@@ -13,11 +13,10 @@ export default StyleSheet.create({
         paddingBottom: 50,
     },
     header: {
-        flex: 0.05,
         backgroundColor: '#111',
         paddingTop: 25,
-        paddingLeft: 50,
-        paddingRight: 50,
+        paddingLeft: 125,
+        paddingRight: 125,
         alignSelf: 'stretch',
     },
     coderImage: {

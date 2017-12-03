@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, Button, Image } from 'react-native';
+import {
+    Text,
+    View,
+    Button,
+    Image,
+} from 'react-native';
 import { Header } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
 
@@ -21,7 +26,7 @@ export default class extends Component {
                 { title: 'Project Activities', value: 0.5 },
                 { title: 'Soft Skills', value: 0.75 },
                 { title: 'Hard Skills', value: 0.6 },
-            ]
+            ],
         };
         this.timerId = null;
     }
@@ -42,7 +47,7 @@ export default class extends Component {
                     value: bar.value > DIFF_ON_TICK
                         ? bar.value - DIFF_ON_TICK
                         : 0,
-                }))
+                })),
             });
             this.tickProgressBars();
         }, 100);
@@ -52,9 +57,8 @@ export default class extends Component {
         return (
             <View style={UserRoomStyles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
                     centerComponent={{ text: 'epamer', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
+                    rightComponent={{ icon: 'user', type: 'font-awesome', color: colors.GRAY }}
                     outerContainerStyles={UserRoomStyles.header}
                 />
 
