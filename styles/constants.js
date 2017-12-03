@@ -15,6 +15,7 @@ export const colors = Object.freeze({
 export const routes = Object.freeze({
     LOGIN_SCREEN: '/login',
     USER_ROOM: '/userroom',
+    ABOUT: '/about',
 });
 
 export const assets = Object.freeze({

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { colors } from './constants';
 
-export const styles = StyleSheet.create({
+export default StyleSheet.create({
     appContainer: {
         flex: 1,
         justifyContent: 'center',
@@ -17,7 +17,11 @@ export const styles = StyleSheet.create({
     logoBracket: {
         color: colors.SHARP_BLUE,
     },
-    button: {
-        backgroundColor: colors.LIME_GREEN,
-    }
+    header: {
+        backgroundColor: '#111',
+        paddingTop: 25,
+        paddingLeft: 125,
+        paddingRight: 125,
+        alignSelf: 'stretch',
+    },
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import { styles } from '../styles/styles.js';
+import commonStyles from '../../styles/styles.js';
 
 export default class WithBrackets extends Component {
     static propTypes = {
@@ -18,12 +18,12 @@ export default class WithBrackets extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.logoText}>
-                    <Text style={styles.logoBracket}>
+                <Text style={commonStyles.logoText}>
+                    <Text style={commonStyles.logoBracket}>
                         {'<'}
                     </Text>
                     {this.props.textInside}
-                    <Text style={styles.logoBracket}>
+                    <Text style={commonStyles.logoBracket}>
                         {'>'}
                     </Text>
                 </Text>

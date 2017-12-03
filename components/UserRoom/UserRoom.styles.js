@@ -12,13 +12,6 @@ export default StyleSheet.create({
         alignItems: 'center',
         paddingBottom: 50,
     },
-    header: {
-        backgroundColor: '#111',
-        paddingTop: 25,
-        paddingLeft: 125,
-        paddingRight: 125,
-        alignSelf: 'stretch',
-    },
     coderImage: {
         flex: 1,
         resizeMode: 'contain',

@@ -4,9 +4,10 @@ import { Font } from 'expo';
 
 import LoginScreen from './components/LoginScreen/LoginScreen';
 import UserRoom from './components/UserRoom/UserRoom';
-import { styles } from './styles/styles.js';
+import commonStyles from './styles/styles.js';
 import { routes } from './styles/constants';
 import userRoomStyles from './components/UserRoom/UserRoom.styles';
+import About from './components/About/About';
 
 export default class App extends Component {
     constructor() {
@@ -48,6 +49,12 @@ export default class App extends Component {
         });
     };
 
+    visitAboutPage = () => {
+        this.setState({
+            screen: routes.ABOUT,
+        });
+    };
+
     renderContent() {
         switch (this.state.screen) {
             case routes.LOGIN_SCREEN: {
@@ -66,12 +73,22 @@ export default class App extends Component {
                     <UserRoom
                         username={this.state.username}
                         onLogout={this.onLogout}
+                        visitAboutPage={this.visitAboutPage}
                     />
+                );
+            }
+            case routes.ABOUT: {
+                return (
+                    <View style={commonStyles.appContainer}>
+                        <About
+                            onBack={this.onLogin}
+                        />
+                    </View>
                 );
             }
             default: {
                 return (
-                    <View style={styles.appContainer}>
+                    <View style={commonStyles.appContainer}>
                         <Text>
                             Screen: "{this.state.screen}"
                         </Text>
@@ -84,7 +101,7 @@ export default class App extends Component {
     render() {
         // if (this.state.errorMessage) {
         //     return (
-        //         <View style={styles.appContainer}>
+        //         <View style={commonStyles.appContainer}>
         //             <Text>
         //                 {this.state.errorMessage}
         //             </Text>
@@ -93,7 +110,7 @@ export default class App extends Component {
         // } // TODO: handle font requiring error
 
         const containerStyles = [
-            styles.appContainer
+            commonStyles.appContainer
         ].concat(this.state.screen === routes.USER_ROOM
             ? [userRoomStyles.container]
             : []

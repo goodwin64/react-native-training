@@ -13,6 +13,7 @@ import {
     colors,
 } from '../../styles/constants';
 import UserRoomStyles from './UserRoom.styles';
+import commonStyles from '../../styles/styles';
 
 const DIFF_ON_TICK = 0.005;
 // const DIFF_ON_TAP = 0.02; // TODO: add logic on tap (increase bar value)
@@ -59,7 +60,7 @@ export default class extends Component {
                 <Header
                     centerComponent={{ text: 'epamer', style: { color: '#fff' } }}
                     rightComponent={{ icon: 'user', type: 'font-awesome', color: colors.GRAY }}
-                    outerContainerStyles={UserRoomStyles.header}
+                    outerContainerStyles={commonStyles.header}
                 />
 
                 <Image
@@ -85,6 +86,14 @@ export default class extends Component {
                     onPress={this.props.onLogout}
                     title="Logout"
                     accessibilityLabel="Log out"
+                    color={colors.LIME_GREEN}
+                    style={UserRoomStyles.logoutButton}
+                />
+
+                <Button
+                    onPress={this.props.visitAboutPage}
+                    title="About"
+                    accessibilityLabel="About"
                     color={colors.LIME_GREEN}
                     style={UserRoomStyles.logoutButton}
                 />
