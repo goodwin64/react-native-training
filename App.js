@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Font } from 'expo';
 
-import LoginScreen from './components/LoginScreen/LoginScreen';
-import UserRoom from './components/UserRoom/UserRoom';
-import commonStyles from './styles/styles.js';
-import { routes } from './styles/constants';
-import userRoomStyles from './components/UserRoom/UserRoom.styles';
-import About from './components/About/About';
+import LoginScreen from './src/components/LoginScreen/LoginScreen';
+import UserRoom from './src/components/UserRoom/UserRoom';
+import commonStyles from './src/styles/styles.js';
+import { routes } from './src/styles/constants';
+import userRoomStyles from './src/components/UserRoom/UserRoom.styles';
+import About from './src/components/About/About';
 
 export default class App extends Component {
     constructor() {
@@ -22,8 +22,8 @@ export default class App extends Component {
     async componentDidMount() {
         try {
             await Font.loadAsync({
-                'Oswald': require('./assets/fonts/Oswald.ttf'),
-                'Oswald-bold': require('./assets/fonts/Oswald-Bold.ttf'),
+                'Oswald': require('./src/assets/fonts/Oswald.ttf'),
+                'Oswald-bold': require('./src/assets/fonts/Oswald-Bold.ttf'),
             });
             this.setState({
                 isFontLoaded: true,
