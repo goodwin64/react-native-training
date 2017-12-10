@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, TextInput, Button } from 'react-native';
 
-import WithBrackets from '../WithBrackets.js';
+import WithBrackets from '../WithBrackets/WithBrackets.js';
 import { colors } from '../../styles/constants';
 import LoginScreenStyles from './LoginScreen.styles';
 

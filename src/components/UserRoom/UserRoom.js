@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, Button, Image } from 'react-native';
+import {
+    Text,
+    View,
+    Button,
+    Image,
+} from 'react-native';
 import { Header } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
 
@@ -8,6 +13,7 @@ import {
     colors,
 } from '../../styles/constants';
 import UserRoomStyles from './UserRoom.styles';
+import commonStyles from '../../styles/styles';
 
 const DIFF_ON_TICK = 0.005;
 // const DIFF_ON_TAP = 0.02; // TODO: add logic on tap (increase bar value)
@@ -21,7 +27,7 @@ export default class extends Component {
                 { title: 'Project Activities', value: 0.5 },
                 { title: 'Soft Skills', value: 0.75 },
                 { title: 'Hard Skills', value: 0.6 },
-            ]
+            ],
         };
         this.timerId = null;
     }
@@ -42,7 +48,7 @@ export default class extends Component {
                     value: bar.value > DIFF_ON_TICK
                         ? bar.value - DIFF_ON_TICK
                         : 0,
-                }))
+                })),
             });
             this.tickProgressBars();
         }, 100);
@@ -52,10 +58,9 @@ export default class extends Component {
         return (
             <View style={UserRoomStyles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
                     centerComponent={{ text: 'epamer', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
-                    outerContainerStyles={UserRoomStyles.header}
+                    rightComponent={{ icon: 'user', type: 'font-awesome', color: colors.GRAY }}
+                    outerContainerStyles={commonStyles.header}
                 />
 
                 <Image
@@ -81,6 +86,14 @@ export default class extends Component {
                     onPress={this.props.onLogout}
                     title="Logout"
                     accessibilityLabel="Log out"
+                    color={colors.LIME_GREEN}
+                    style={UserRoomStyles.logoutButton}
+                />
+
+                <Button
+                    onPress={this.props.visitAboutPage}
+                    title="About"
+                    accessibilityLabel="About"
                     color={colors.LIME_GREEN}
                     style={UserRoomStyles.logoutButton}
                 />

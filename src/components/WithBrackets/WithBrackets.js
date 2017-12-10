@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import { styles } from '../styles/styles.js';
+import styles from '../../styles/styles.js';
 
 export default class WithBrackets extends Component {
     static propTypes = {
