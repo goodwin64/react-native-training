@@ -13,9 +13,12 @@ export const colors = Object.freeze({
 });
 
 export const routes = Object.freeze({
-    LOGIN_SCREEN: '/login',
-    USER_ROOM: '/userroom',
-    ABOUT: '/about',
+    LOGIN_SCREEN_TITLE: 'LoginScreen',
+    LOGIN_SCREEN_PATH: '/login',
+    USER_ROOM_TITLE: 'UserRoom',
+    USER_ROOM_PATH: '/userroom',
+    ABOUT_TITLE: 'About',
+    ABOUT_PATH: '/about',
 });
 
 export const assets = Object.freeze({

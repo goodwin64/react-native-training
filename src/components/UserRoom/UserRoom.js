@@ -19,6 +19,10 @@ const DIFF_ON_TICK = 0.005;
 // const DIFF_ON_TAP = 0.02; // TODO: add logic on tap (increase bar value)
 
 export default class extends Component {
+    static navigationOptions = {
+        title: 'Your cosy room',
+    };
+
     constructor() {
         super();
         this.state = {

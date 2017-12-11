@@ -26,12 +26,8 @@ class BackButton extends Component {
 }
 
 export default class About extends Component {
-    static propTypes = {
-        onBack: PropTypes.func,
-    };
-
-    static defaultProps = {
-        onBack: () => {},
+    static navigationOptions = {
+        title: 'Additional info about this app, nothing interesting here, flip further...',
     };
 
     render() {

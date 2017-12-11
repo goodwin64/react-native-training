@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { View, TextInput, Button } from 'react-native';
 
 import WithBrackets from '../WithBrackets/WithBrackets.js';
-import { colors } from '../../styles/constants';
+import {colors, routes} from '../../styles/constants';
 import LoginScreenStyles from './LoginScreen.styles';
 
 class Logo extends Component {
@@ -19,26 +18,20 @@ class Logo extends Component {
 }
 
 export default class LoginScreen extends Component {
-    static propTypes = {
-        onUsernameInput: PropTypes.func.isRequired,
-        onPasswordInput: PropTypes.func.isRequired,
-        username: PropTypes.string.isRequired,
-        password: PropTypes.string.isRequired,
-    };
+    constructor() {
+        super();
+        this.state = {
+            username: '',
+            password: '',
+        };
+    }
 
-    static defaultProps = {
-        onUsernameInput: () => {},
-        onPasswordInput: () => {},
-        username: '',
-        password: '',
-    };
-
-    onUsernameInput = (username) => {
-        this.props.onUsernameInput(username);
-    };
-
-    onPasswordInput = (password) => {
-        this.props.onPasswordInput(password);
+    onLoginPress = (username) => {
+        if (username !== 'con') {
+            this.props.navigation.navigate(routes.USER_ROOM_TITLE, {
+                username,
+            });
+        }
     };
 
     render() {
@@ -47,8 +40,8 @@ export default class LoginScreen extends Component {
                 <Logo />
 
                 <TextInput
-                    onChangeText={this.onUsernameInput}
-                    value={this.props.username}
+                    onChangeText={username => this.setState({ username })}
+                    value={this.state.username}
                     placeholder="Username"
                     placeholderTextColor={colors.LIGHT_GRAY}
                     onSubmitEditing={(event) => {
@@ -58,8 +51,8 @@ export default class LoginScreen extends Component {
                 />
 
                 <TextInput
-                    onChangeText={this.onPasswordInput}
-                    value={this.props.password}
+                    onChangeText={password => this.setState({ password })}
+                    value={this.state.password}
                     placeholder="***********"
                     placeholderTextColor={colors.LIGHT_GRAY}
                     secureTextEntry
@@ -68,7 +61,7 @@ export default class LoginScreen extends Component {
                 />
 
                 <Button
-                    onPress={this.props.onLogin}
+                    onPress={this.onLoginPress}
                     title="Login"
                     accessibilityLabel="Log in"
                     color={colors.LIME_GREEN}
