@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import { Font } from 'expo';
+import {SafeAreaView, StackNavigator, TabNavigator} from 'react-navigation';
 
 import LoginScreen from './src/components/LoginScreen/LoginScreen';
 import UserRoom from './src/components/UserRoom/UserRoom';
@@ -8,6 +9,24 @@ import commonStyles from './src/styles/styles.js';
 import { routes } from './src/styles/constants';
 import userRoomStyles from './src/components/UserRoom/UserRoom.styles';
 import About from './src/components/About/About';
+
+const Routes = {
+    Login: {
+        name: 'Login form: authorization',
+        description: 'Start screen where user inputs credentials',
+        screen: LoginScreen,
+    },
+    UserRoom: {
+        name: 'Main screen with user parameters',
+        description: 'Starting point to main actions and other screens',
+        screen: UserRoom,
+    },
+    About: {
+        name: 'About the app',
+        description: `Tells the purpose of this application, some credits and author's personal thanks`,
+        screen: About,
+    },
+};
 
 export default class App extends Component {
     constructor() {
@@ -50,9 +69,10 @@ export default class App extends Component {
     };
 
     visitAboutPage = () => {
-        this.setState({
-            screen: routes.ABOUT,
-        });
+        // this.setState({
+        //     screen: routes.ABOUT,
+        // });
+        this.props.navigate(routes.ABOUT);
     };
 
     renderContent() {
@@ -121,5 +141,33 @@ export default class App extends Component {
                 {this.renderContent()}
             </View>
         );
+
+        // return (
+        //     <ScrollView
+        //         style={{ flex: 1 }}
+        //         contentInsetAdjustmentBehavior="automatic"
+        //     >
+        //         {Object.keys(Routes).map((routeName) => (
+        //             <TouchableOpacity
+        //                 key={routeName}
+        //                 onPress={() => {
+        //                     const { path, params, screen } = Routes[routeName];
+        //                     const { router } = screen;
+        //                     const action = path && router.getActionForPathAndParams(path, params);
+        //                     this.props.navigation.navigate(routeName, {}, action);
+        //                 }}
+        //             >
+        //                 <SafeAreaView
+        //                     forceInset={{ vertical: 'never' }}
+        //                 >
+        //                     <View>
+        //                         <Text>{Routes[routeName].name}</Text>
+        //                         <Text>{Routes[routeName].description}</Text>
+        //                     </View>
+        //                 </SafeAreaView>
+        //             </TouchableOpacity>
+        //         ))}
+        //     </ScrollView>
+        // );
     }
 }
