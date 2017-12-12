@@ -18,8 +18,12 @@ export const routes = Object.freeze({
     LOGIN_PATH: '/login',
     USER_ROOM_SCREEN: 'UserRoom',
     USER_ROOM_PATH: '/userroom',
+    SECONDARY_PAGE_SCREEN: 'SecondaryPage',
+    SECONDARY_PAGE_PATH: '/secondary-page',
     ABOUT_SCREEN: 'About',
     ABOUT_PATH: '/about',
+    CONTACTS_SCREEN: 'Contacts',
+    CONTACTS_PATH: '/contacts',
 });
 
 export const assets = Object.freeze({

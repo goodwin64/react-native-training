@@ -5,7 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import LoginScreen from './src/components/LoginScreen/LoginScreen';
 import UserRoom from './src/components/UserRoom/UserRoom';
 import { routes } from './src/styles/constants';
-import About from './src/components/About/About';
+import SecondaryPage from "./src/components/SecondaryPage/SecondaryPage";
 
 const RootRouter = StackNavigator({
     [routes.LOGIN_SCREEN]: {
@@ -20,11 +20,11 @@ const RootRouter = StackNavigator({
         screen: UserRoom,
         path: routes.USER_ROOM_PATH,
     },
-    [routes.ABOUT_SCREEN]: {
-        name: 'About the app',
-        description: `Tells the purpose of this application, some credits and author's personal thanks`,
-        screen: About,
-        path: routes.ABOUT_PATH,
+    [routes.SECONDARY_PAGE_SCREEN]: {
+        name: 'Additional info',
+        description: 'Everything you want to know if you are our fan',
+        screen: SecondaryPage,
+        path: routes.SECONDARY_PAGE_PATH,
     },
 });
 

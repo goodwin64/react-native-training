@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { Icon } from 'react-native-elements';
 
-import { colors } from '../../styles/constants';
-import commonStyles from '../../styles/styles';
-import WithBrackets from "../WithBrackets/WithBrackets";
+import { colors } from '../../../styles/constants';
+import commonStyles from '../../../styles/styles';
+import WithBrackets from "../../WithBrackets/WithBrackets";
 
 export default class About extends Component {
     static navigationOptions = {
