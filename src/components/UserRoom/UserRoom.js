@@ -5,12 +5,13 @@ import {
     Button,
     Image,
 } from 'react-native';
-import { Header } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
 
 import {
     assets,
     colors,
+    routes,
 } from '../../styles/constants';
 import UserRoomStyles from './UserRoom.styles';
 import commonStyles from '../../styles/styles';
@@ -21,6 +22,16 @@ const DIFF_ON_TICK = 0.005;
 export default class extends Component {
     static navigationOptions = {
         title: 'Your cosy room',
+        headerStyle: commonStyles.header,
+        headerTintColor: colors.WHITE,
+        headerRight: (
+            <Icon
+                icon='user'
+                type='font-awesome'
+                color={colors.GRAY}
+                size={36}
+            />
+        ), // FIXME: doesn't render
     };
 
     constructor() {
@@ -59,14 +70,9 @@ export default class extends Component {
     };
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={UserRoomStyles.container}>
-                <Header
-                    centerComponent={{ text: 'epamer', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'user', type: 'font-awesome', color: colors.GRAY }}
-                    outerContainerStyles={commonStyles.header}
-                />
-
                 <Image
                     style={UserRoomStyles.coderImage}
                     source={assets.IMAGE_CODER}
@@ -86,16 +92,19 @@ export default class extends Component {
                     ))
                 }
 
+                {/* TODO: add normal behaviour for logout button, hide back button */}
+                {false &&
                 <Button
-                    onPress={this.props.onLogout}
+                    onPress={() => navigate(routes.LOGIN_SCREEN)}
                     title="Logout"
                     accessibilityLabel="Log out"
                     color={colors.LIME_GREEN}
                     style={UserRoomStyles.logoutButton}
                 />
+                }
 
                 <Button
-                    onPress={this.props.visitAboutPage}
+                    onPress={() => navigate(routes.ABOUT_SCREEN)}
                     title="About"
                     accessibilityLabel="About"
                     color={colors.LIME_GREEN}

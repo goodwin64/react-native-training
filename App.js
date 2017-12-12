@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
 import { Font } from 'expo';
 import { StackNavigator } from 'react-navigation';
 
 import LoginScreen from './src/components/LoginScreen/LoginScreen';
 import UserRoom from './src/components/UserRoom/UserRoom';
-import commonStyles from './src/styles/styles.js';
 import { routes } from './src/styles/constants';
 import About from './src/components/About/About';
 
 const RootRouter = StackNavigator({
-    [routes.LOGIN_SCREEN_TITLE]: {
+    [routes.LOGIN_SCREEN]: {
         name: 'Login form: authorization',
         description: 'Start screen where user inputs credentials',
         screen: LoginScreen,
-        path: routes.LOGIN_SCREEN_PATH,
+        path: routes.LOGIN_PATH,
     },
-    [routes.USER_ROOM_TITLE]: {
+    [routes.USER_ROOM_SCREEN]: {
         name: 'Main screen with user parameters',
         description: 'Starting point to main actions and other screens',
         screen: UserRoom,
         path: routes.USER_ROOM_PATH,
     },
-    [routes.ABOUT_TITLE]: {
+    [routes.ABOUT_SCREEN]: {
         name: 'About the app',
         description: `Tells the purpose of this application, some credits and author's personal thanks`,
         screen: About,
@@ -34,7 +32,7 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            screen: routes.LOGIN_SCREEN_PATH,
+            screen: routes.LOGIN_PATH,
             isFontLoaded: false,
             errorMessage: null,
         };

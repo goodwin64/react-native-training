@@ -1,53 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View } from 'react-native';
-import {
-    Header,
-    Icon,
-} from 'react-native-elements';
+import { Text, View } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 import { colors } from '../../styles/constants';
 import commonStyles from '../../styles/styles';
-
-class BackButton extends Component {
-    render() {
-        return (
-            <View>
-                <Icon
-                    onPress={this.props.onBack}
-                    icon='angle-left'
-                    type='font-awesome'
-                    color={colors.WHITE}
-                    size={36}
-                />
-            </View>
-        );
-    }
-}
+import WithBrackets from "../WithBrackets/WithBrackets";
 
 export default class About extends Component {
     static navigationOptions = {
-        title: 'Additional info about this app, nothing interesting here, flip further...',
+        // title: 'Additional info about this app, nothing interesting here, flip further...',
+        headerStyle: commonStyles.header,
+        headerTintColor: colors.WHITE,
+        headerTitle: <WithBrackets textInside="about"/>, // TODO: add normal styles
     };
 
     render() {
         return (
             <View>
-                <Header
-                    leftComponent={
-                        <BackButton onBack={this.props.onBack}/> // FIXME: find root cause why it doesn't render
-                    }
-                    // leftComponent={{
-                    //     icon: 'angle-left',
-                    //     type: 'font-awesome',
-                    //     color: colors.WHITE
-                    // }}
-                    centerComponent={{
-                        text: 'about',
-                        style: { color: colors.WHITE },
-                    }}
-                    outerContainerStyles={commonStyles.header}
-                />
+                <Text style={{
+                    fontSize: 28,
+                    color: colors.MEDIUM_GRAY,
+                    padding: 15,
+                }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur.
+                </Text>
             </View>
         );
     }

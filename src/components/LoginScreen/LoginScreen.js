@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Button } from 'react-native';
 
 import WithBrackets from '../WithBrackets/WithBrackets.js';
-import {colors, routes} from '../../styles/constants';
+import { colors, routes } from '../../styles/constants';
 import LoginScreenStyles from './LoginScreen.styles';
 
 class Logo extends Component {
@@ -18,6 +18,10 @@ class Logo extends Component {
 }
 
 export default class LoginScreen extends Component {
+    static navigationOptions = {
+        header: null,
+    };
+
     constructor() {
         super();
         this.state = {
@@ -26,9 +30,10 @@ export default class LoginScreen extends Component {
         };
     }
 
-    onLoginPress = (username) => {
-        if (username !== 'con') {
-            this.props.navigation.navigate(routes.USER_ROOM_TITLE, {
+    onLoginPress = () => {
+        const { username } = this.state;
+        if (username && username !== 'con') { // Easter Egg ^^,
+            this.props.navigation.navigate(routes.USER_ROOM_SCREEN, {
                 username,
             });
         }
@@ -37,7 +42,7 @@ export default class LoginScreen extends Component {
     render() {
         return (
             <View style={LoginScreenStyles.container}>
-                <Logo />
+                <Logo/>
 
                 <TextInput
                     onChangeText={username => this.setState({ username })}
