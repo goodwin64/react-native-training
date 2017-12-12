@@ -18,10 +18,7 @@ export default StyleSheet.create({
         color: colors.SHARP_BLUE,
     },
     header: {
-        backgroundColor: '#111',
-        paddingTop: 25,
-        paddingLeft: 125,
-        paddingRight: 125,
+        backgroundColor: colors.DARK,
         alignSelf: 'stretch',
     },
 });
