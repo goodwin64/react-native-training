@@ -4,6 +4,7 @@ import { View, TextInput, Button } from 'react-native';
 import WithBrackets from '../WithBrackets/WithBrackets.js';
 import { colors, routes } from '../../styles/constants';
 import LoginScreenStyles from './LoginScreen.styles';
+import { SocialIcon } from "react-native-elements";
 
 class Logo extends Component {
     render() {
@@ -70,6 +71,13 @@ export default class LoginScreen extends Component {
                     title="Login"
                     accessibilityLabel="Log in"
                     color={colors.LIME_GREEN}
+                />
+
+                {/* TODO: add behaviour on 3rd party services linking */}
+                <SocialIcon
+                    title='Sign In With Facebook'
+                    button
+                    type='facebook'
                 />
             </View>
         );
