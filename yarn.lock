@@ -4545,6 +4545,10 @@ react-native-progress@^3.4.0:
   dependencies:
     prop-types "^15.5.8"
 
+react-native-row@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-row/-/react-native-row-1.1.1.tgz#1c094c18930db093cd18f01dbf9b41e63ae5d280"
+
 react-native-safe-module@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-module/-/react-native-safe-module-1.2.0.tgz#a23824ca24edc2901913694a76646475113d570d"
