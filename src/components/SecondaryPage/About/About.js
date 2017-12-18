@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 
 import { colors } from '../../../styles/constants';
 import commonStyles from '../../../styles/styles';
@@ -15,9 +15,9 @@ export default class About extends Component {
 
     render() {
         return (
-            <View>
+            <ScrollView>
                 <Text style={{
-                    fontSize: 28,
+                    fontSize: 32,
                     color: colors.MEDIUM_GRAY,
                     padding: 15,
                 }}>
@@ -26,7 +26,7 @@ export default class About extends Component {
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur.
                 </Text>
-            </View>
+            </ScrollView>
         );
     }
 }
