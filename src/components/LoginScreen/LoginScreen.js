@@ -27,6 +27,7 @@ export default class LoginScreen extends Component {
         super();
         this.state = {
             username: '',
+            // username: String(Math.random().toFixed(5)), // DEV MODE
             password: '',
         };
     }

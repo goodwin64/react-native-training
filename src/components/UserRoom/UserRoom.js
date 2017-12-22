@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
     Text,
     View,
@@ -27,22 +26,14 @@ export default class UserRoom extends Component {
         title: 'Your cosy room',
         headerStyle: commonStyles.header,
         headerTintColor: colors.WHITE,
-        headerRight: (
-            <Icon
-                name='user'
-                type='font-awesome'
-                color={colors.GRAY}
-                size={32}
-            /> // FIXME: connect Redux and use common Header + open Modal there
-        ),
-    };
-
-    static propTypes = {
-        username: PropTypes.string,
-    };
-
-    static defaultProps = {
-        username: 'Username',
+        // headerRight: (
+        //     <Icon
+        //         name='user'
+        //         type='font-awesome'
+        //         color={colors.GRAY}
+        //         size={32}
+        //     /> // FIXME: connect Redux and use common Header + open Modal there
+        // ),
     };
 
     constructor() {
@@ -97,12 +88,24 @@ export default class UserRoom extends Component {
         const {
             navigate,
             state: {
-                params
+                params = {}
             },
         } = this.props.navigation;
 
         return (
             <View style={UserRoomStyles.container}>
+                {/*
+                  * TODO: after Redux connection move this icon to Header,
+                  * now static header has no connection to class methods
+                  */}
+                <Icon
+                    name='user'
+                    type='font-awesome'
+                    color={colors.GRAY}
+                    size={32}
+                    onPress={this.openActionsMenu}
+                />
+
                 <Image
                     style={UserRoomStyles.coderImage}
                     source={assets.IMAGE_CODER}
@@ -139,19 +142,6 @@ export default class UserRoom extends Component {
                     accessibilityLabel="About"
                     color={colors.LIME_GREEN}
                     style={UserRoomStyles.logoutButton}
-                />
-
-                <Text>
-                    isMenuOpened={this.state.isActionsMenuOpened}
-                    username: {params.username}
-                </Text>
-
-                <Icon
-                    name='user'
-                    type='font-awesome'
-                    color={colors.GRAY}
-                    size={32}
-                    onPress={this.openActionsMenu}
                 />
 
                 <Modal isVisible={this.state.isActionsMenuOpened}>
