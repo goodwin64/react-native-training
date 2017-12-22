@@ -4513,6 +4513,10 @@ react-native-animatable@^1.2.3:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-animated-bar@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-animated-bar/-/react-native-animated-bar-0.2.0.tgz#98ffaaa58d5ac73d73a88b061141ef4f74a7dda1"
+
 react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
@@ -4558,12 +4562,6 @@ react-native-modal@^4.1.1:
   dependencies:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
-
-react-native-progress@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-3.4.0.tgz#c002e6efb2f0b82dd6889510e669c492da2718ac"
-  dependencies:
-    prop-types "^15.5.8"
 
 react-native-row@^1.1.1:
   version "1.1.1"
