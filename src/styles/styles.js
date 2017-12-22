@@ -20,5 +20,6 @@ export default StyleSheet.create({
     header: {
         backgroundColor: colors.DARK,
         alignSelf: 'stretch',
+        paddingRight: 20,
     },
 });

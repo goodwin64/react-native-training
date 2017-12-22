@@ -32,3 +32,12 @@ export const assets = Object.freeze({
     IMAGE_CODER: require('../assets/images/user-room-background.png'),
     iconsPath: '../assets/icons/',
 });
+
+export const LAYER_ACTIONS_MENU = 'ACTIONS_MENU';
+/**
+ * Calculates unique zIndex
+ * Structure similar to Linked List prevents from z-indices collisions
+ */
+export const getZIndex = layerName => [
+    LAYER_ACTIONS_MENU,
+].indexOf(layerName) + 1;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button } from 'react-native';
+import { SocialIcon } from 'react-native-elements';
 
 import WithBrackets from '../WithBrackets/WithBrackets.js';
 import { colors, routes } from '../../styles/constants';
 import LoginScreenStyles from './LoginScreen.styles';
-import { SocialIcon } from "react-native-elements";
 
 class Logo extends Component {
     render() {
