@@ -144,7 +144,6 @@ export default class UserRoom extends Component {
                     <ActionsMenu
                         closeActionsMenu={this.closeActionsMenu}
                     />
-                    <Text>XXXXXXXXXXXXXXXXXXXXXXXXX</Text>
                 </Modal>
             </View>
         );
