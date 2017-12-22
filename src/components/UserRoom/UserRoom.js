@@ -4,9 +4,10 @@ import {
     View,
     Button,
     Image,
+    TouchableOpacity,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
-import * as Progress from 'react-native-progress';
+import AnimatedBar from 'react-native-animated-bar';
 import Modal from 'react-native-modal';
 
 import {
@@ -18,8 +19,9 @@ import UserRoomStyles from './UserRoom.styles';
 import commonStyles from '../../styles/styles';
 import ActionsMenu from "../ActionsMenu/ActionsMenu";
 
-const DIFF_ON_TICK = 0.005;
-// const DIFF_ON_TAP = 0.02; // TODO: add logic on tap (increase bar value)
+const DIFF_ON_TICK = 0.025;
+const DIFF_ON_TAP = 0.1;
+const BAR_ANIMATION_DURATION_MS = 1000;
 
 export default class UserRoom extends Component {
     static navigationOptions = {
@@ -70,6 +72,25 @@ export default class UserRoom extends Component {
         })
     };
 
+    onProgressBarTap = (barToChange) => {
+        this.setState({
+            progressBars: this.state.progressBars.map(bar => {
+                if (bar !== barToChange) {
+                    return bar;
+                }
+
+                const diffValue = bar.value < 1
+                    ? DIFF_ON_TAP
+                    : 0;
+
+                return ({
+                    ...bar,
+                    value: bar.value + diffValue
+                })
+            }),
+        });
+    };
+
     tickProgressBars = () => {
         this.timerId = setTimeout(() => {
             this.setState({
@@ -81,7 +102,7 @@ export default class UserRoom extends Component {
                 })),
             });
             this.tickProgressBars();
-        }, 100);
+        }, BAR_ANIMATION_DURATION_MS);
     };
 
     render() {
@@ -113,15 +134,23 @@ export default class UserRoom extends Component {
 
                 {
                     this.state.progressBars.map(bar => (
-                        <View key={bar.title}>
+                        <TouchableOpacity
+                            key={bar.title}
+                            onPress={() => this.onProgressBarTap(bar)}
+                        >
                             <Text>
                                 {bar.title}
                             </Text>
-                            <Progress.Bar
+                            <AnimatedBar
                                 progress={bar.value}
-                                width={200}
+                                height={10}
+                                barColor={colors.RASPBERRY}
+                                borderRadius={5}
+                                duration={BAR_ANIMATION_DURATION_MS}
+                                wrapStyle={{ width: 200 }}
+                                style={{ width: 200 }}
                             />
-                        </View>
+                        </TouchableOpacity>
                     ))
                 }
 
