@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     Text,
     View,
@@ -34,6 +35,14 @@ export default class UserRoom extends Component {
                 size={32}
             /> // FIXME: connect Redux and use common Header + open Modal there
         ),
+    };
+
+    static propTypes = {
+        username: PropTypes.string,
+    };
+
+    static defaultProps = {
+        username: 'Username',
     };
 
     constructor() {
@@ -85,7 +94,13 @@ export default class UserRoom extends Component {
     };
 
     render() {
-        const { navigate } = this.props.navigation;
+        const {
+            navigate,
+            state: {
+                params
+            },
+        } = this.props.navigation;
+
         return (
             <View style={UserRoomStyles.container}>
                 <Image
@@ -127,9 +142,8 @@ export default class UserRoom extends Component {
                 />
 
                 <Text>
-                    {
-                        `isMenuOpened=${this.state.isActionsMenuOpened}`
-                    }
+                    isMenuOpened={this.state.isActionsMenuOpened}
+                    username: {params.username}
                 </Text>
 
                 <Icon
@@ -143,6 +157,7 @@ export default class UserRoom extends Component {
                 <Modal isVisible={this.state.isActionsMenuOpened}>
                     <ActionsMenu
                         closeActionsMenu={this.closeActionsMenu}
+                        username={params.username}
                     />
                 </Modal>
             </View>

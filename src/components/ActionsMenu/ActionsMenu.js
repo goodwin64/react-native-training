@@ -47,6 +47,10 @@ export default class ActionsMenu extends Component {
                     }}
                 />
 
+                <WithBrackets
+                    textInside={this.props.username}
+                />
+
                 <Row
                     dial={5}
                     flex
