@@ -3,6 +3,7 @@ import { TabNavigator } from "react-navigation";
 import { colors, routes } from "../../styles/constants";
 import About from "./About/About";
 import Contacts from "./Contacts/Contacts";
+import WeatherWidget from "../WeatherWidget/WeatherWidget";
 
 export default TabNavigator({
     [routes.ABOUT_SCREEN]: {
@@ -16,6 +17,12 @@ export default TabNavigator({
         name: 'Contact me :)',
         description: 'Write me anything you want, bae',
         path: routes.CONTACTS_PATH,
+    },
+    [routes.WEATHER_WIDGET_SCREEN]: {
+        screen: WeatherWidget,
+        name: 'Current weather',
+        description: 'Gets your location and tells what is the weather there',
+        path: routes.WEATHER_WIDGET_PATH,
     },
 }, {
     tabBarPosition: 'top',

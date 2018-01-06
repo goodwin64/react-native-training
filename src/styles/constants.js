@@ -24,12 +24,19 @@ export const routes = Object.freeze({
     ABOUT_PATH: '/about',
     CONTACTS_SCREEN: 'Contacts',
     CONTACTS_PATH: '/contacts',
+    WEATHER_WIDGET_SCREEN: 'Weather',
+    WEATHER_WIDGET_PATH: '/weather',
 });
 
 export const assets = Object.freeze({
     // FONT_OSWALD: require('../assets/fonts/Oswald.ttf'), // TODO: continue when fixing font
     // FONT_OSWALD_BOLD: require('../assets/fonts/Oswald-Bold.ttf'),
     IMAGE_CODER: require('../assets/images/user-room-background.png'),
+    IMAGE_WEATHER_RAIN: require('../assets/images/weather-rain.png'),
+    IMAGE_WEATHER_SNOW: require('../assets/images/weather-snow.png'),
+    IMAGE_WEATHER_CLEAR: require('../assets/images/weather-clear.png'),
+    IMAGE_WEATHER_CLOUDS: require('../assets/images/weather-clouds.png'),
+    IMAGE_WEATHER_EXTREME: require('../assets/images/weather-extreme.png'),
     iconsPath: '../assets/icons/',
 });
 
