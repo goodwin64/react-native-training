@@ -24,6 +24,8 @@ export const routes = Object.freeze({
     ABOUT_PATH: '/about',
     CONTACTS_SCREEN: 'Contacts',
     CONTACTS_PATH: '/contacts',
+    WEATHER_WIDGET_SCREEN: 'Weather',
+    WEATHER_WIDGET_PATH: '/weather',
 });
 
 export const assets = Object.freeze({

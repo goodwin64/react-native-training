@@ -173,6 +173,14 @@ export default class UserRoom extends Component {
                     style={UserRoomStyles.logoutButton}
                 />
 
+                <Button
+                    onPress={() => navigate(routes.WEATHER_WIDGET_SCREEN)}
+                    title="Weather"
+                    accessibilityLabel="Weather"
+                    color={colors.LIME_GREEN}
+                    style={UserRoomStyles.logoutButton}
+                />
+
                 <Modal isVisible={this.state.isActionsMenuOpened}>
                     <ActionsMenu
                         closeActionsMenu={this.closeActionsMenu}
