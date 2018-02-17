@@ -18,7 +18,7 @@ import {
 import UserRoomStyles from './UserRoom.styles';
 import commonStyles from '../../styles/styles';
 import ActionsMenu from "../ActionsMenu/ActionsMenu";
-import MyCustomCameraRunner from '../MyCustomCameraRunner/MyCustomCameraRunner';
+// import MyCustomCameraRunner from '../MyCustomCameraRunner/MyCustomCameraRunner';
 
 const DIFF_ON_TICK = 0.025;
 const DIFF_ON_TAP = 0.1;
@@ -189,7 +189,10 @@ export default class UserRoom extends Component {
                     />
                 </Modal>
 
+                {/* Some problems with connecting after installing "react-native-camera"
+                TODO: investigate and fix
                 <MyCustomCameraRunner/>
+                */}
             </View>
         );
     }
