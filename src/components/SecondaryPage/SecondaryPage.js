@@ -32,5 +32,3 @@ export default TabNavigator(
     tabBarOptions: { activeTintColor: colors.RASPBERRY }
   }
 );
-
-// the second "prettier" manual test: whether it will prettify files via "Webstorm"-way commit
