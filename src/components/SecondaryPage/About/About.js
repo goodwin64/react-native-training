@@ -34,5 +34,3 @@ export default class About extends Component {
     );
   }
 }
-
-// test changes: just to check this file will be prettier'ed and added to the commit
